@@ -1,4 +1,3 @@
-
 import React, { forwardRef } from 'react';
 import { CardState, CardMotif } from '../types';
 import { Phone, MapPin, Globe, Share2 } from 'lucide-react';
@@ -112,7 +111,7 @@ const MotifIcon = ({ type, color = "url(#goldFoil)" }: { type: CardMotif, color?
     }
 };
 
-// --- LAYOUT COMPONENTS ---
+// --- LAYOUT COMPONENTS (Defined before use) ---
 
 // 1. Royal (Frame) Layout
 const RoyalLayout = ({ content, logoUrl }: { content: CardState['content'], logoUrl: string | null }) => (
@@ -287,7 +286,7 @@ const AgencyBoldLayout = ({ content, logoUrl, date }: { content: CardState['cont
       {/* Main Typography */}
       <div className="mt-8 space-y-2">
          <h1 className="text-7xl font-black text-white leading-[0.9] uppercase tracking-tight drop-shadow-xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-             {content.tamilTitle.split(' ').slice(0, 3).map((word, i) => (
+             {(content.tamilTitle || "").split(' ').slice(0, 3).map((word, i) => (
                 <span key={i} className={i % 2 !== 0 ? "text-[#FFD600]" : "text-white"}>
                   {word}<br/>
                 </span>
